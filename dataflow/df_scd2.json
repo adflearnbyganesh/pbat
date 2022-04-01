@@ -50,6 +50,9 @@
 				},
 				{
 					"name": "alterRow1"
+				},
+				{
+					"name": "filter1"
 				}
 			],
 			"scriptLines": [
@@ -79,11 +82,12 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"txtfile, select1 lookup(id == sid,",
+				"select1, txtfile lookup(sid == id,",
 				"     multiple: true,",
 				"     broadcast: 'auto')~> lookup1",
-				"lookup1 derive(IsActive = 0) ~> derivedColumn2",
+				"filter1 derive(IsActive = 0) ~> derivedColumn2",
 				"derivedColumn2 alterRow(updateIf(1==1)) ~> alterRow1",
+				"lookup1 filter(!isNull(id)) ~> filter1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
