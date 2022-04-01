@@ -1,0 +1,35 @@
+{
+	"name": "ds_sql_empdelimted1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_sqlserver",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "names",
+				"type": "varchar"
+			},
+			{
+				"name": "IsActive",
+				"type": "bit"
+			},
+			{
+				"name": "eid",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "empdelimited"
+		}
+	}
+}
