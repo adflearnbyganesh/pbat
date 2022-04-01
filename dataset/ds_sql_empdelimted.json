@@ -5,8 +5,15 @@
 			"referenceName": "lnk_sqlserver",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"ABC": {
+				"type": "string",
+				"defaultValue": "testabc"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
+
 		"schema": [
 			{
 				"name": "id",
@@ -27,9 +34,13 @@
 				"precision": 10
 			}
 		],
+
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "empdelimited"
+			"table": {
+				"value": "@dataset().ABC",
+				"type": "Expression"
+			}
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
