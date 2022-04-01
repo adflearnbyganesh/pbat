@@ -125,7 +125,12 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          id = sid,",
+				"          names = snames,",
+				"          IsActive = sIsActive",
+				"     )) ~> sink2"
 			]
 		}
 	}
