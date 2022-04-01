@@ -87,7 +87,7 @@
 				"     broadcast: 'auto')~> lookup1",
 				"filter1 derive(IsActive = 0) ~> derivedColumn2",
 				"derivedColumn2 alterRow(updateIf(1==1)) ~> alterRow1",
-				"lookup1 filter(sIsActive == toBoolean('false')) ~> filter1",
+				"lookup1 filter(sIsActive == toBoolean('true')) ~> filter1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
